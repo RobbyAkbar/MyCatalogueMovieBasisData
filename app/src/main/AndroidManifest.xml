@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="es.esy.android_inyourhand.mycataloguemoviebasisdata">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <permission android:name="es.esy.android_inyourhand.mycataloguemoviebasisdata.READ_DATABASE" android:protectionLevel="normal"/>
+    <permission android:name="es.esy.android_inyourhand.mycataloguemoviebasisdata.WRITE_DATABASE" android:protectionLevel="normal"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DetailMovieActivity"/>
+        <provider
+            android:authorities="es.esy.android_inyourhand.mycataloguemoviebasisdata"
+            android:name=".provider.MovieProvider"
+            android:exported="true"
+            android:readPermission="es.esy.android_inyourhand.mycataloguemoviebasisdata.READ_DATABASE"
+            android:writePermission="es.esy.android_inyourhand.mycataloguemoviebasisdata.WRITE_DATABASE"/>
+
+    </application>
+
+</manifest>
